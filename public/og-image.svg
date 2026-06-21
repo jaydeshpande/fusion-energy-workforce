@@ -36,6 +36,10 @@
   <text x="80" y="150" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="700" letter-spacing="3" fill="#e64aa8">FREE · OPEN · FOR EVERYONE</text>
   <text x="78" y="270" font-family="Helvetica, Arial, sans-serif" font-size="92" font-weight="700" fill="#2c2540">Learn fusion.</text>
   <text x="78" y="378" font-family="Helvetica, Arial, sans-serif" font-size="92" font-weight="700" fill="url(#warm)">For free.</text>
-  <text x="80" y="452" font-family="Helvetica, Arial, sans-serif" font-size="30" font-weight="500" fill="#5a5172">Courses · Simulators · Companies · Programs · Labs</text>
-  <text x="80" y="560" font-family="Helvetica, Arial, sans-serif" font-size="30" font-weight="600" fill="#f4661f">fusionenergyworkforce.com</text>
+  <text x="80" y="446" font-family="Helvetica, Arial, sans-serif" font-size="30" font-weight="500" fill="#5a5172">Courses · Simulators · Companies · Programs · Labs</text>
+
+  <!-- Call to action -->
+  <rect x="80" y="498" width="312" height="66" rx="33" fill="url(#warm)"/>
+  <text x="236" y="540" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="30" font-weight="700" fill="#ffffff">Start learning →</text>
+  <text x="424" y="540" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="600" fill="#f4661f">fusionenergyworkforce.com</text>
 </svg>
