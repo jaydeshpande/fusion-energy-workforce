@@ -1,0 +1,94 @@
+---
+import Base from '../layouts/Base.astro';
+import { companies, approaches, ecosystemLinks } from '../data/companies.js';
+
+const filters = ['All', ...approaches];
+---
+<Base
+  title="Commercial Fusion — Companies, Approaches & the Industry"
+  description="Explore the private fusion industry: 40+ fusion companies grouped by approach — tokamak, stellarator, inertial/laser, magnetized target, field-reversed configuration and alternatives — plus the directories tracking funding and milestones."
+>
+  <section class="section" style="padding-bottom:1rem;">
+    <div class="wrap">
+      <span class="eyebrow">Everything commercial fusion</span>
+      <h1>The companies working to commercialize fusion.</h1>
+      <p class="lead">A private fusion industry barely existed a decade ago. Today more than 40 companies have raised over $7 billion to commercialize fusion, by very different routes. Filter by approach to see who is pursuing what.</p>
+
+      <div class="filters" id="approachFilters" role="group" aria-label="Filter by approach">
+        {filters.map((f, i) => (
+          <button class={`filter-btn ${i === 0 ? 'active' : ''}`} data-approach={f}>{f === 'All' ? 'All approaches' : f}</button>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0.5rem;">
+    <div class="wrap">
+      <div class="grid grid-3" id="companyGrid">
+        {companies.map((c) => (
+          <a class="card" href={c.url} target="_blank" rel="noopener" data-approach={c.approach}>
+            <div class="card-foot" style="margin:0 0 0.7rem;">
+              <span class="chip">{c.approach}</span>
+              <span style="font-size:1.3rem;" title={c.country}>{c.flag}</span>
+            </div>
+            <h3>{c.name}</h3>
+            <p class="by">{c.country}</p>
+            <p>{c.blurb}</p>
+            <div class="card-foot"><span class="go">Visit site →</span></div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0;">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Follow the whole industry</span>
+        <h2>Maps, members &amp; market data</h2>
+        <p class="lead">The directory above is a curated snapshot. These sources track companies, funding rounds and milestones across the industry.</p>
+      </div>
+      <div class="grid grid-2">
+        {ecosystemLinks.map((e) => (
+          <a class="list-row" href={e.url} target="_blank" rel="noopener">
+            <span class="flag">🔗</span>
+            <span class="row-body">
+              <span class="row-name">{e.name}</span>
+              <span class="row-note">{e.blurb}</span>
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0;">
+    <div class="wrap">
+      <div class="callout">
+        <span class="eyebrow">Approaches, in plain language</span>
+        <div class="grid grid-2" style="margin-top:0.6rem;">
+          <p style="margin:0;"><strong>Tokamak / Stellarator:</strong> donut-shaped magnetic "bottles" that hold a hot plasma in place with powerful magnets. Tokamaks are symmetric and pulsed; stellarators use twisted coils for steadier confinement.</p>
+          <p style="margin:0;"><strong>Inertial / Laser:</strong> a tiny fuel pellet is hit from all sides (by lasers or projectiles) so it implodes and fuses in billionths of a second.</p>
+          <p style="margin:0;"><strong>Magnetized target &amp; FRC:</strong> hybrids that form a compact ball of magnetized plasma, then compress it to fusion conditions.</p>
+          <p style="margin:0;"><strong>Z-pinch, mirrors &amp; more:</strong> leaner geometries aiming at simpler, cheaper machines.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const buttons = document.querySelectorAll('#approachFilters .filter-btn');
+    const cards = document.querySelectorAll('#companyGrid .card');
+    buttons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        buttons.forEach((b) => b.classList.remove('active'));
+        btn.classList.add('active');
+        const a = btn.getAttribute('data-approach');
+        cards.forEach((c) => {
+          const show = a === 'All' || c.getAttribute('data-approach') === a;
+          c.classList.toggle('is-hidden', !show);
+        });
+      });
+    });
+  </script>
+</Base>

@@ -1,0 +1,222 @@
+---
+import Base from '../layouts/Base.astro';
+import { videoResources } from '../data/resources.js';
+
+const pathways = [
+  { emoji: '🌅', title: 'Start from zero', text: 'No physics background needed. Short videos and explainers that cover the basics.', href: '/learn/#start' },
+  { emoji: '🎓', title: 'Study it properly', text: 'Free university courses, textbooks and lecture notes from MIT, Princeton and others.', href: '/learn/#courses' },
+  { emoji: '🕹️', title: 'Play & experiment', text: 'Drive a virtual tokamak and try real plasma simulators in your browser.', href: '/learn/#play' },
+  { emoji: '🏭', title: 'Explore the industry', text: 'The companies working to commercialize fusion, grouped by approach and country.', href: '/commercial/' },
+  { emoji: '🌍', title: 'Find a program', text: 'Plasma and fusion degrees and research groups across 40+ countries.', href: '/programs/' },
+  { emoji: '🔬', title: 'Tour the big machines', text: 'ITER, NIF, W7-X, KSTAR and other major fusion experiments.', href: '/facilities/' },
+];
+
+const featured = videoResources.slice(0, 3);
+
+const whyFusion = [
+  { emoji: '⚡', title: 'Powerful', text: 'Gram for gram, fusion fuel releases millions of times more energy than coal, oil or gas, and it can run around the clock alongside wind and solar.' },
+  { emoji: '🛡️', title: 'Safe', text: 'No meltdown risk and no long-lived waste. Stop the precise conditions and the reaction stops. There are no carbon emissions or air pollution, and the main byproduct is helium.' },
+  { emoji: '🌊', title: 'Plentiful', text: 'The fuel comes from water and other abundant elements. A bathtub of water and a little lithium hold enough energy for one person’s lifetime.' },
+];
+
+const faqs = [
+  {
+    q: 'What is fusion energy?',
+    a: 'Fusion energy is the power released when light atomic nuclei, such as the hydrogen isotopes deuterium and tritium, are fused into heavier ones. The reaction D + T → helium + a neutron releases about 17.6 MeV. It produces no carbon emissions and no long-lived radioactive waste, and its main product is helium.',
+  },
+  {
+    q: 'Is fusion energy real, and does it actually work?',
+    a: 'Yes. Fusion powers the Sun and stars, and has been produced on Earth for decades. In 2022 the U.S. National Ignition Facility achieved ignition (net energy gain from the fuel), and the JET tokamak set fusion energy records. The remaining challenge is engineering power plants that are practical and affordable, which is the focus of today’s public and private fusion programs.',
+  },
+  {
+    q: 'How can I start learning fusion for free?',
+    a: 'Begin with short video explainers that assume no physics, then move on to free university courses and lectures from MIT, Princeton and others, interactive in-browser tokamak simulators, and well-regarded textbooks. They are all sorted by level on the Learn page of this site.',
+  },
+  {
+    q: 'What jobs and careers exist in fusion energy?',
+    a: 'Fusion needs physicists and a wide range of engineers (mechanical, electrical, materials, cryogenic, nuclear and software), plus technicians, project managers and more. Estimates suggest the sector may need roughly 25,000 to 60,000 workers by 2035.',
+  },
+  {
+    q: 'What are the main approaches to fusion?',
+    a: 'There are two broad families. Magnetic confinement uses powerful magnets to hold a hot plasma (tokamaks, stellarators, mirrors and field-reversed configurations). Inertial confinement rapidly compresses fuel using lasers or pulsed power. Companies and labs are pursuing many variations of each.',
+  },
+];
+
+const faqJsonLd = {
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+<Base
+  title="Fusion Energy Workforce — Learn Fusion Energy, Free"
+  description="Learn plasma & fusion energy for free: curated videos, courses and simulators, the full commercial fusion company ecosystem, academic programs in 40+ countries, and the world’s major fusion labs."
+  jsonLd={faqJsonLd}
+>
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <span class="eyebrow">Free · Open · For everyone</span>
+          <h1>Learn how we’re <span class="grad">building a star</span> on Earth.</h1>
+          <p class="lead">A free, open guide to plasma and fusion energy: learning resources, the commercial fusion industry, and the major training programs around the world.</p>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="/learn/">Start learning →</a>
+            <a class="btn btn-ghost" href="/commercial/">Explore the industry</a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat"><strong>40+</strong><span>countries with programs</span></div>
+            <div class="stat"><strong>40+</strong><span>fusion companies</span></div>
+            <div class="stat"><strong>100%</strong><span>free resources</span></div>
+          </div>
+        </div>
+        <div>
+          <div class="star-art fusion-art" aria-hidden="true">
+            <span class="fusion-glow"></span>
+
+            <div class="atom atom-d">
+              <div class="e-ring"><span class="electron"></span></div>
+              <div class="nucleus">
+                <span class="nucleon proton"></span>
+                <span class="nucleon neutron"></span>
+              </div>
+              <span class="atom-label">D</span>
+            </div>
+
+            <span class="fusion-flash"></span>
+            <span class="neutron-out"></span>
+
+            <div class="helium">
+              <span class="nucleon proton"></span>
+              <span class="nucleon neutron"></span>
+              <span class="nucleon neutron"></span>
+              <span class="nucleon proton"></span>
+            </div>
+
+            <div class="atom atom-t">
+              <div class="e-ring"><span class="electron"></span></div>
+              <div class="nucleus">
+                <span class="nucleon proton"></span>
+                <span class="nucleon neutron"></span>
+                <span class="nucleon neutron"></span>
+              </div>
+              <span class="atom-label">T</span>
+            </div>
+          </div>
+          <p class="fusion-eq">
+            <span class="iso-d">²H</span> + <span class="iso-t">³H</span>
+            → <span class="iso-he">⁴He</span> + <span class="iso-n">n</span>
+            <span class="eq-energy">+ 17.6 MeV</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head center">
+        <span class="eyebrow">Pick a path</span>
+        <h2>Where would you like to start?</h2>
+        <p class="lead">Newcomer, student, teacher, or heading into the field: there is a place to begin here.</p>
+      </div>
+      <div class="grid grid-3">
+        {pathways.map((p) => (
+          <a class="card path-card" href={p.href}>
+            <div class="emoji">{p.emoji}</div>
+            <h3>{p.title}</h3>
+            <p>{p.text}</p>
+            <div class="card-foot"><span class="go">Explore →</span></div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0;">
+    <div class="wrap">
+      <div class="callout">
+        <span class="eyebrow">Fusion in one minute</span>
+        <h2 style="margin-bottom:0.6rem;">What is fusion energy?</h2>
+        <p style="max-width:75ch; color:var(--ink-soft);">Stars make light and heat by <strong>fusing</strong> light atomic nuclei (like hydrogen) into heavier ones, releasing large amounts of energy. To do it on Earth we heat a gas above 100 million degrees until it becomes a <strong>plasma</strong>, the fourth state of matter, and hold it long enough for fusion to occur. Done well, a cup of fuel can supply a lifetime of electricity, with no carbon emissions and no long-lived waste. The science is proven; the work now is to make it practical and affordable.</p>
+        <a class="btn btn-ghost" href="/learn/#start" style="margin-top:0.4rem;">Watch the explainers →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0;">
+    <div class="wrap">
+      <div class="section-head center">
+        <span class="eyebrow">Why it’s worth the effort</span>
+        <h2>Why fusion?</h2>
+        <p class="lead">Three reasons it draws so much effort and investment.</p>
+      </div>
+      <div class="grid grid-3">
+        {whyFusion.map((w) => (
+          <div class="card">
+            <div class="emoji">{w.emoji}</div>
+            <h3>{w.title}</h3>
+            <p>{w.text}</p>
+          </div>
+        ))}
+      </div>
+      <p class="note-pill" style="margin-top:1.2rem;">Framing adapted from <a href="https://usfusionenergy.org/why-fusion" target="_blank" rel="noopener">U.S. Fusion Energy</a>, a public resource on fusion in the United States.</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0;">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Start here</span>
+        <h2>Three good videos to begin with</h2>
+      </div>
+      <div class="grid grid-3">
+        {featured.map((r) => (
+          <a class="card" href={r.url} target="_blank" rel="noopener">
+            <div class="card-foot" style="margin:0 0 0.7rem;"><span class="tag-pill">{r.tag}</span><span class={`chip level-${r.level}`}>{r.level}</span></div>
+            <h3>{r.title}</h3>
+            <p class="by">{r.by}</p>
+            <p>{r.blurb}</p>
+            <div class="card-foot"><span class="go">Watch →</span></div>
+          </a>
+        ))}
+      </div>
+      <div style="text-align:center; margin-top:1.6rem;">
+        <a class="btn btn-primary" href="/learn/">See all learning resources →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0;">
+    <div class="wrap">
+      <div class="section-head center">
+        <span class="eyebrow">Questions, answered</span>
+        <h2>Fusion energy FAQ</h2>
+        <p class="lead">Common questions, answered in plain language.</p>
+      </div>
+      <div class="faq-list">
+        {faqs.map((f) => (
+          <div class="faq-item">
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0;">
+    <div class="wrap">
+      <div class="banner">
+        <span class="eyebrow" style="color:rgba(255,255,255,0.85);">The mission</span>
+        <h2>Built for the next fusion generation.</h2>
+        <p>The world will need an estimated 25,000–60,000 fusion workers by 2035. This site gathers the free resources, programs and industry links to help anyone, from a curious 12-year-old to a career-changer, find a way in.</p>
+        <a class="btn btn-ghost" href="/about/" style="margin-top:1rem;">Read the story →</a>
+      </div>
+    </div>
+  </section>
+</Base>

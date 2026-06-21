@@ -1,0 +1,87 @@
+---
+import Base from '../layouts/Base.astro';
+import ResourceCard from '../components/ResourceCard.astro';
+import {
+  videoResources,
+  courseResources,
+  interactiveResources,
+  readingResources,
+  teacherResources,
+} from '../data/resources.js';
+
+const sections = [
+  { id: 'start', eyebrow: 'Watch & listen', title: 'Video explainers', sub: 'Start at the top; these assume no physics.', items: videoResources },
+  { id: 'courses', eyebrow: 'Go deeper', title: 'Free courses & lectures', sub: 'Full university courses, lecture notes and learning hubs, all free to use.', items: courseResources },
+  { id: 'play', eyebrow: 'Hands-on', title: 'Interactive simulators', sub: 'Build a plasma and drive a tokamak in your browser.', items: interactiveResources },
+  { id: 'read', eyebrow: 'Read', title: 'Textbooks & deep reads', sub: 'The standard texts and reliable introductions for going deeper.', items: readingResources },
+  { id: 'teach', eyebrow: 'For educators', title: 'Teacher & K-12 resources', sub: 'Classroom-ready lessons, activities and professional development.', items: teacherResources },
+];
+const levels = ['All', 'Newcomer', 'Student', 'Advanced'];
+---
+<Base
+  title="Learn Fusion — Free Videos, Courses, Simulators & Textbooks"
+  description="Free fusion & plasma physics learning resources, tagged by level: video explainers, full university courses and lectures, interactive tokamak simulators, and top-rated fusion textbooks."
+>
+  <section class="section" style="padding-bottom:1rem;">
+    <div class="wrap">
+      <span class="eyebrow">The learning hub</span>
+      <h1>Free resources to learn fusion.</h1>
+      <p class="lead">Curated videos, courses, simulators, textbooks and classroom resources. Filter by level to find what fits.</p>
+
+      <div class="filters" id="levelFilters" role="group" aria-label="Filter by level">
+        {levels.map((lvl, i) => (
+          <button class={`filter-btn ${i === 0 ? 'active' : ''}`} data-level={lvl}>{lvl === 'All' ? 'All levels' : lvl}</button>
+        ))}
+      </div>
+      <p class="note-pill">💡 Tip: <strong>Newcomer</strong> needs no physics · <strong>Student</strong> suits high-school/undergrad · <strong>Advanced</strong> is grad &amp; professional</p>
+    </div>
+  </section>
+
+  {sections.map((s) => (
+    <section class="section resource-section" id={s.id} style="padding-top:2rem;">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">{s.eyebrow}</span>
+          <h2>{s.title}</h2>
+          <p class="lead">{s.sub}</p>
+        </div>
+        <div class="grid grid-3">
+          {s.items.map((r) => <ResourceCard {...r} />)}
+        </div>
+        <p class="no-match is-hidden" style="color:var(--ink-faint);">No resources at this level in this section. Try another filter.</p>
+      </div>
+    </section>
+  ))}
+
+  <section class="section" style="padding-top:0;">
+    <div class="wrap">
+      <div class="banner">
+        <h2>Know a resource we’re missing?</h2>
+        <p>This list gets better with community input. Free courses, channels, simulators and lesson plans all belong here.</p>
+        <a class="btn btn-ghost" href="/about/#contribute" style="margin-top:1rem;">How to contribute →</a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const buttons = document.querySelectorAll('#levelFilters .filter-btn');
+    const cards = document.querySelectorAll('.resource-section .card');
+    buttons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        buttons.forEach((b) => b.classList.remove('active'));
+        btn.classList.add('active');
+        const level = btn.getAttribute('data-level');
+        cards.forEach((c) => {
+          const show = level === 'All' || c.getAttribute('data-level') === level;
+          c.classList.toggle('is-hidden', !show);
+        });
+        // hide empty sections / show their "no match" note
+        document.querySelectorAll('.resource-section').forEach((sec) => {
+          const visible = sec.querySelectorAll('.card:not(.is-hidden)').length;
+          const note = sec.querySelector('.no-match');
+          if (note) note.classList.toggle('is-hidden', visible !== 0);
+        });
+      });
+    });
+  </script>
+</Base>

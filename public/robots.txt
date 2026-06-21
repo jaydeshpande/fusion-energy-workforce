@@ -1,0 +1,6 @@
+# Fusion Energy Workforce — open educational resource.
+# All crawlers welcome, including AI/LLM crawlers (GPTBot, ClaudeBot, PerplexityBot, Google-Extended, etc.).
+User-agent: *
+Allow: /
+
+Sitemap: https://fusionenergyworkforce.com/sitemap.xml

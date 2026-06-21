@@ -1,0 +1,55 @@
+---
+import Base from '../layouts/Base.astro';
+import { facilities } from '../data/facilities.js';
+
+const statusColor = {
+  'Operating': 'level-Newcomer',
+  'Under construction': 'level-Student',
+  'Retired (2023)': 'level-Advanced',
+};
+---
+<Base
+  title="Major Fusion Facilities & Experiments Worldwide"
+  description="Tour the landmark fusion experiments: ITER, NIF, JET, Wendelstein 7-X, EAST, KSTAR, JT-60SA, WEST, SPARC and more — by type, location and operating status."
+>
+  <section class="section" style="padding-bottom:1rem;">
+    <div class="wrap">
+      <span class="eyebrow">The big machines</span>
+      <h1>The facilities pushing fusion forward.</h1>
+      <p class="lead">From the largest experiment ever built to compact machines chasing net energy, these are the landmark labs where the work happens. Each links to the team that runs it.</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0.5rem;">
+    <div class="wrap">
+      <div class="grid grid-3">
+        {facilities.map((f) => (
+          <a class="card" href={f.url} target="_blank" rel="noopener">
+            <div class="card-foot" style="margin:0 0 0.7rem;">
+              <span class="chip">{f.kind}</span>
+              <span style="font-size:1.3rem;" title={f.location}>{f.flag}</span>
+            </div>
+            <h3>{f.name}</h3>
+            <p class="by">{f.location}</p>
+            <p>{f.blurb}</p>
+            <div class="card-foot">
+              <span class={`chip ${statusColor[f.status] ?? ''}`}>{f.status}</span>
+              <span class="go">Visit →</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0;">
+    <div class="wrap">
+      <div class="callout center">
+        <span class="eyebrow">Want the full map?</span>
+        <h2 style="margin-bottom:0.5rem;">200+ labs, one directory</h2>
+        <p style="margin-inline:auto; color:var(--ink-soft); max-width:60ch;">ITER maintains a directory of fusion research institutions in more than 40 countries, the most complete map of where this work happens.</p>
+        <a class="btn btn-primary" href="https://www.iter.org/scientists/worldwide-fusion-links" target="_blank" rel="noopener" style="margin-top:0.6rem;">Open the worldwide fusion map →</a>
+      </div>
+    </div>
+  </section>
+</Base>

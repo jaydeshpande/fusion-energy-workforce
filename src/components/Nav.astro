@@ -1,0 +1,33 @@
+---
+const { path = '' } = Astro.props;
+const links = [
+  { href: '/learn/', label: 'Learn' },
+  { href: '/commercial/', label: 'Commercial Fusion' },
+  { href: '/programs/', label: 'Programs' },
+  { href: '/facilities/', label: 'Facilities' },
+  { href: '/about/', label: 'About' },
+];
+const isActive = (href) => path === href || (href !== '/' && path.startsWith(href));
+---
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="/">
+      <span class="sun-badge" aria-hidden="true"></span>
+      Fusion Energy Workforce
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" id="navToggle">☰</button>
+    <nav class="nav-links" id="navLinks">
+      {links.map((l) => (
+        <a href={l.href} class={isActive(l.href) ? 'active' : ''}>{l.label}</a>
+      ))}
+    </nav>
+  </div>
+</header>
+<script>
+  const t = document.getElementById('navToggle');
+  const m = document.getElementById('navLinks');
+  t?.addEventListener('click', () => {
+    const open = m?.classList.toggle('open');
+    t.setAttribute('aria-expanded', String(!!open));
+  });
+</script>

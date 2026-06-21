@@ -1,0 +1,42 @@
+---
+const year = new Date().getFullYear();
+
+// Where the "It belongs here" link sends people to report broken links / suggest resources.
+const contributeUrl = 'https://forms.gle/u7tWNCjKzDedEXub9';
+---
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="/">
+          <span class="sun-badge" aria-hidden="true"></span>
+          Fusion Energy Workforce
+        </a>
+        <p style="max-width: 38ch;">A free, open guide to learning plasma and fusion, and to the people, companies and labs working on star power on Earth.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="/learn/">Learn fusion</a></li>
+          <li><a href="/commercial/">Commercial fusion</a></li>
+          <li><a href="/programs/">Academic programs</a></li>
+          <li><a href="/facilities/">Major facilities</a></li>
+          <li><a href="/about/">About this project</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Anchor links</h4>
+        <ul>
+          <li><a href="https://www.iter.org/" target="_blank" rel="noopener">ITER Organization</a></li>
+          <li><a href="https://www.fusionindustryassociation.org/" target="_blank" rel="noopener">Fusion Industry Association</a></li>
+          <li><a href="https://www.pppl.gov/education" target="_blank" rel="noopener">PPPL Education</a></li>
+          <li><a href="https://iopscience.iop.org/article/10.1088/1361-6587/adfa40" target="_blank" rel="noopener">The workforce paper</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-note">
+      <p>Built as an open educational resource that grew out of the NSF-funded Workforce Accelerator for Fusion Energy Development. Resource links point to third-party sites; we don’t endorse and aren’t responsible for their content. Spotted a broken link or a resource we should add? It belongs <a href={contributeUrl} target="_blank" rel="noopener">here</a>.</p>
+      <p>© {year} Fusion Energy Workforce · A community learning hub</p>
+    </div>
+  </div>
+</footer>

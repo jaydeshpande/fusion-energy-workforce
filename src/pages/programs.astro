@@ -1,0 +1,76 @@
+---
+import Base from '../layouts/Base.astro';
+import { regions, programDirectories } from '../data/programs.js';
+---
+<Base
+  title="Fusion & Plasma Physics Programs Around the World"
+  description="Find fusion and plasma physics degree programs and research groups worldwide — across 40+ countries, from MIT, Princeton and EPFL to KAIST, QST and beyond."
+>
+  <section class="section" style="padding-bottom:1rem;">
+    <div class="wrap">
+      <span class="eyebrow">Study fusion anywhere</span>
+      <h1>Plasma &amp; fusion programs around the world.</h1>
+      <p class="lead">Where to study this. A curated guide to university programs, graduate schools and national labs that train fusion scientists and engineers, on every inhabited continent. For the full 200+ list, jump to the directories below.</p>
+      <div class="hero-cta">
+        <a class="btn btn-ghost" href="#directories">Full worldwide directory →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:1rem;">
+    <div class="wrap">
+      {regions.map((region) => (
+        <div class="region">
+          <div class="region-title">
+            <span class="flag">{region.flag}</span>
+            <h2 style="margin:0;">{region.name}</h2>
+            <span class="count">· {region.programs.length} programs</span>
+          </div>
+          <div class="grid grid-2">
+            {region.programs.map((p) => (
+              <a class="list-row" href={p.url} target="_blank" rel="noopener">
+                <span class="flag">🎓</span>
+                <span class="row-body">
+                  <span class="row-name">{p.name}</span>
+                  <span class="row-country">{p.country}</span>
+                  <span class="row-note">{p.note}</span>
+                </span>
+              </a>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="section" id="directories" style="padding-top:0;">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">The full list</span>
+        <h2>The complete worldwide directories</h2>
+        <p class="lead">These maintained lists cover 200+ labs and university programs across 40+ countries, and are the best places to search for a group near you.</p>
+      </div>
+      <div class="grid grid-2">
+        {programDirectories.map((d) => (
+          <a class="list-row" href={d.url} target="_blank" rel="noopener">
+            <span class="flag">🌐</span>
+            <span class="row-body">
+              <span class="row-name">{d.name}</span>
+              <span class="row-note">{d.blurb}</span>
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0;">
+    <div class="wrap">
+      <div class="banner">
+        <h2>Studying fusion is more than physics.</h2>
+        <p>The field needs engineers, materials scientists, technicians, software developers, magnet builders and more. Many of these programs welcome backgrounds far beyond plasma physics.</p>
+        <a class="btn btn-ghost" href="/commercial/" style="margin-top:1rem;">See where the jobs are →</a>
+      </div>
+    </div>
+  </section>
+</Base>

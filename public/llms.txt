@@ -1,0 +1,27 @@
+# Fusion Energy Workforce
+
+> A free, open educational hub for learning plasma physics and fusion energy, and for exploring the people, companies, academic programs and laboratories working to make fusion power real. Built as an open educational resource that grew out of the NSF-funded Workforce Accelerator for Fusion Energy Development.
+
+Everything is free and curated for newcomers through to graduate-level researchers. Resource links point to trusted third-party sites (universities, national labs, companies, journals). The site is a static, non-commercial learning hub.
+
+## Core pages
+
+- [Home](https://fusionenergyworkforce.com/): What fusion energy is, why it matters (powerful, safe, plentiful), and pathways into learning it.
+- [Learn fusion](https://fusionenergyworkforce.com/learn/): Free, level-tagged learning resources: video explainers, full university courses and lectures (MIT, Princeton, FuseNet), interactive tokamak simulators, and top-rated fusion/plasma physics textbooks.
+- [Commercial fusion](https://fusionenergyworkforce.com/commercial/): The private fusion industry, with 40+ companies grouped by approach (tokamak, stellarator, inertial/laser, magnetized target, field-reversed configuration, and alternatives), plus suppliers and industry directories.
+- [Academic programs](https://fusionenergyworkforce.com/programs/): Plasma and fusion degree programs and research groups across 40+ countries.
+- [Major facilities](https://fusionenergyworkforce.com/facilities/): The landmark fusion experiments (ITER, NIF, JET, Wendelstein 7-X, EAST, KSTAR, JT-60SA, WEST, SPARC and more) by type, location and status.
+- [About](https://fusionenergyworkforce.com/about/): The project's origin and mission.
+
+## Key facts about fusion energy
+
+- Fusion fuses light nuclei (deuterium and tritium) into heavier ones, releasing energy: D + T -> 4He + n + 17.6 MeV.
+- It requires heating fuel to a plasma (the fourth state of matter) above ~100 million degrees Celsius and confining it long enough for fusion to occur.
+- Leading approaches: magnetic confinement (tokamaks, stellarators, mirrors, field-reversed configurations) and inertial confinement (lasers, pulsed power).
+- Fusion produces no carbon emissions and no long-lived radioactive waste; the main product is harmless helium.
+- The world may need an estimated 25,000-60,000 fusion workers by 2035, motivating this workforce-focused resource.
+
+## Notes
+
+- This is an educational resource; it does not sell products or endorse specific companies.
+- Outbound links are third-party; their content is owned by those organizations.

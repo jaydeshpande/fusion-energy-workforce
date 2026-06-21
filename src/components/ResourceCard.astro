@@ -1,0 +1,15 @@
+---
+const { title, by, level, blurb, url, tag } = Astro.props;
+---
+<a class="card" href={url} target="_blank" rel="noopener" data-level={level}>
+  <div class="card-foot" style="margin:0 0 0.7rem; justify-content: space-between;">
+    {tag && <span class="tag-pill">{tag}</span>}
+    {level && <span class={`chip level-${level}`}>{level}</span>}
+  </div>
+  <h3>{title}</h3>
+  <p class="by">{by}</p>
+  <p>{blurb}</p>
+  <div class="card-foot">
+    <span class="go">Open resource →</span>
+  </div>
+</a>
